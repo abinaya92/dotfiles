@@ -171,7 +171,6 @@ set updatecount=10
 " Keybinds
 "**************************************
 
-
 " Death to arrow keys!
 map <up> <nop>
 map <down> <nop>
@@ -206,3 +205,41 @@ nnoremap <Leader>q :q<CR>
 
 " kill that stupid window that pops up
 map q: :q
+
+set nocompatible        " Use advanced Vim features
+set binary noeol        " Allow binary editing
+set backspace=indent,eol,start " Allow backspace in all situations
+set visualbell t_vb=    " Use the visual bell instead of beep
+set ttyfast             " Make screen changes smoother
+set ff=unix             " Use unix filetype first then dos
+filetype on             " Detect filetypes
+set history=50          " Allow 50 entries in the history
+
+if &t_Co > 2 || has("gui_running")
+    syntax on           " Enable syntax highlighting
+endif
+set showcmd             " Display incomplete commands
+set ruler               " Show cursor position
+set number              " Show line numbers
+set sm                  " Show matching braces
+set laststatus=2        " Display status bar
+set notitle             " Don't display the title bar
+set showtabline=2       " Always show the tab line
+
+if &t_Co > 2 || has("gui_running")
+    set hlsearch        " Highlight words on search
+endif
+set showmatch           " Show matching brackets/paranthesis
+set incsearch           " Incremental searching
+set ignorecase smartcase " Ignore Case for search unless upper case
+
+set shiftwidth=4        " Set tab width to 4 and force spaces
+set tabstop=4
+set softtabstop=4
+set expandtab
+
+set nowrap              " By default no word wrapping
+set nolinebreak         " Don't use linebreaks along with wrapping
+
+set autoindent
+set smartindent
