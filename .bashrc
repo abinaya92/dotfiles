@@ -23,7 +23,7 @@ UNDERLINE="\[$(tput smul)\]"
 function parse_git_branch () {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
-export PS1="${BOLD}\t ${NORMAL}[\u@\h]${BOLD}${WHITE}$(parse_git_branch) \
+export PS1="${BOLD}\t ${NORMAL}[\u@\h]${BOLD}${WHITE}\$(parse_git_branch) \
 ${NORMAL}${GREEN}\w\\n${RED}\$${NORMAL} "
 
 # commands
