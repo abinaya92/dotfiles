@@ -18,6 +18,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'altercation/vim-colors-solarized'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'unblevable/quick-scope'
+Plug 'mbbill/undotree'
 " Plug 'jaxbot/semantic-highlight.vim'
 " Plug 'nathanaelkane/vim-indent-guides'
 " Plug 'scrooloose/syntastic'
@@ -205,6 +206,29 @@ nnoremap <Leader>q :q<CR>
 
 " kill that stupid window that pops up
 map q: :q
+
+"**************************************
+" Persistent undo
+"**************************************
+
+" Put plugins and dictionaries in this dir (also on Windows)
+let vimDir = '$HOME/.vim'
+let &runtimepath.=','.vimDir
+
+" Keep undo history across sessions by storing it in a file
+if has('persistent_undo')
+    let myUndoDir = expand(vimDir . '/undodir')
+    " Create dirs
+    call system('mkdir ' . vimDir)
+    call system('mkdir ' . myUndoDir)
+    let &undodir = myUndoDir
+    set undofile
+endif
+
+"**************************************
+" Undo Tree
+"**************************************
+nnoremap <Leader>u :UndotreeToggle<CR>:UndotreeFocus <CR>
 
 set nocompatible        " Use advanced Vim features
 set binary noeol        " Allow binary editing
