@@ -86,8 +86,9 @@ let g:ctrlp_custom_ignore = {
     \ 'dir': 'work/ecos2\|'
     \ . 'work/hst/targets\|'
     \ . 'work/epic\|'
-    \ . '^mts\.' ,
-    \ 'file': '\.a$' ,
+    \ . 'mts\.\(\d\d\d\d\|module\)' ,
+    \ 'file': '\.\(a\|so\|o\)$\|'
+    \ . 'tar\.\(bz2\|gz\)$',
     \ }
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 "**************************************
