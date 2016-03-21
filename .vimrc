@@ -6,9 +6,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'vim-scripts/a.vim'
-" Plug 'justincampbell/vim-eighties'
 Plug 'scrooloose/nerdtree'
+Plug 'vim-scripts/a.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -19,10 +18,8 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'unblevable/quick-scope'
 Plug 'mbbill/undotree'
-" Plug 'jaxbot/semantic-highlight.vim'
-" Plug 'nathanaelkane/vim-indent-guides'
-" Plug 'scrooloose/syntastic'
-" Plug 'Valloric/YouCompleteMe', {'do': './install.py' }
+Plug 'djoshea/vim-autoread'
+Plug 'tpope/vim-surround'
 call plug#end()
 "**************************************
 " Quick Scope
