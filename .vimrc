@@ -1,3 +1,7 @@
+" Started here: http://nvie.com/posts/how-i-boosted-my-vim/
+
+set nocompatible " This must be first, because it changes other options as side effect
+
 " Automatically install Plug
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -6,81 +10,42 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
-Plug 'scrooloose/nerdtree'
-Plug 'vim-scripts/a.vim'
-Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'vim-airline/vim-airline'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-fugitive'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
-Plug 'easymotion/vim-easymotion'
-Plug 'vim-airline/vim-airline'
-Plug 'altercation/vim-colors-solarized'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'unblevable/quick-scope'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'mbbill/undotree'
+Plug 'easymotion/vim-easymotion'
+Plug 'vim-scripts/a.vim'
 Plug 'djoshea/vim-autoread'
 Plug 'tpope/vim-surround'
+Plug 'justincampbell/vim-eighties'
 call plug#end()
-"**************************************
-" Quick Scope
-"**************************************
-" Trigger a highlight in the appropriate direction when pressing these keys:
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 
-"**************************************
-" Airline
-"**************************************
+let mapleader = "\<Space>"
+
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
 let g:airline#extensions#tabline#enabled = 1
-"**************************************
-" Eighties (Auto Buffer Resizing)
-"**************************************
-" let g:eighties_enabled = 1
-" let g:eighties_minimum_width = 80
-" let g:eighties_extra_width = 0 " Increase this if you want some extra room
-" let g:eighties_compute = 1 " Disable this if you just want the minimum + extra
-" let g:eighties_bufname_additional_patterns = ['fugitiveblame'] " Defaults to [], 'fugitiveblame' is only an example. Takes a comma delimited list of bufnames as strings.:
-"**************************************
-" EasyMotion
-"**************************************
-" map <Leader><Leader> <Plug>(easymotion-prefix)
 
-"**************************************
-" Solarized Color
-"**************************************
-set background=dark
-colorscheme solarized
-
-"**************************************
-" a.vim
-"**************************************
-map <Leader><Tab>  :A<cr>
-" a.vim has some really dumb mappings that we need to remove, but we need
-" to wait until vim has loaded to unmap them
-autocmd VimEnter * :iunmap <Space>ihn
-autocmd VimEnter * :iunmap <Space>is
-autocmd VimEnter * :iunmap <Space>ih
-
-autocmd VimEnter * :nunmap <Space>ihn
-autocmd VimEnter * :nunmap <Space>is
-autocmd VimEnter * :nunmap <Space>ih
-
-"**************************************
-" vim-tmux-navigator
-"**************************************
 let g:tmux_navigator_no_mappings = 1
-
 nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
 nnoremap <silent> <c-j> :TmuxNavigateDown<cr>
 nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
-"**************************************
-" CtrlP
-"**************************************
+
+set background=dark
+colorscheme solarized
+
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_clear_cache_on_exit=0
-
 let g:ctrlp_max_files=80000
 let g:ctrlp_custom_ignore = {
     \ 'dir': 'work/ecos2\|'
@@ -92,7 +57,33 @@ let g:ctrlp_custom_ignore = {
     \ }
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
-" NERDTree
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T'] " Trigger a highlight in the appropriate direction when pressing these keys:
+
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+nmap s <Plug>(easymotion-overwin-f2)
+let g:EasyMotion_smartcase = 1
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+
+let g:eighties_enabled = 1
+let g:eighties_minimum_width = 80
+let g:eighties_extra_width = 0 " Increase this if you want some extra room
+let g:eighties_compute = 1 " Disable this if you just want the minimum + extra
+let g:eighties_bufname_additional_patterns = ['fugitiveblame'] " Defaults to [], 'fugitiveblame' is only an example. Takes a comma delimited list of bufnames as strings.:
+
+map <Leader><Tab>  :A<cr>
+" a.vim has some really dumb mappings that we need to remove, but we need
+" to wait until vim has loaded to unmap them
+autocmd VimEnter * :iunmap <Space>ihn
+autocmd VimEnter * :iunmap <Space>is
+autocmd VimEnter * :iunmap <Space>ih
+
+autocmd VimEnter * :nunmap <Space>ihn
+autocmd VimEnter * :nunmap <Space>is
+autocmd VimEnter * :nunmap <Space>ih
 
 let NERDTreeShowHidden=1
 nnoremap <Leader>m :NERDTreeToggle<CR>
@@ -100,127 +91,8 @@ nnoremap <Leader>f :NERDTreeFind<CR>
 " Quit vim if NERDTree is the only buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-"**************************************
-" vim-indent-guides
-"**************************************
-
-" " Enable indent guides by default
-" let g:indent_guides_enable_on_vim_startup = 1
-" 
-" " Look and feel
-" let g:indent_guides_auto_colors = 1
-" let g:indent_guides_guide_size = 1
-" let g:indent_guides_start_level = 2
-" 
-" " Disable on certain filetypes
-" let g:indent_guides_exclude_filetypes = ['help', 'nerdtree']
-
-"**************************************
-" Vim settings
-"**************************************
-
-:set colorcolumn=80
-
-" 4 spaces for indentation
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set softtabstop=4
-
-set smarttab
-set autoindent
-filetype plugin indent on
-
-" Don't warn me when switching buffers
-set hidden
-" Keep 3 lines below and above the cursor
-set scrolloff=3
-set sidescrolloff=3
-
-set laststatus=2
-
-" Show tabs and trailing whitespace
-set list
-set listchars=tab:▸-,trail:⊡
-
-set nocompatible " Disable vi-compatability
-set encoding=utf-8
-set t_Co=256
-syntax enable
-
-set backspace=indent,eol,start
-set complete-=i
-
-set nrformats-=octal
-
-set ttimeout
-set ttimeoutlen=100
-
-"Show line numbers
-set number
-
-" Mouse mode
-set mouse=a
-
-" Highlight search results
-set hlsearch
-" Live search
-set incsearch
-
-" split views go below or to the right
-set splitright
-set splitbelow
-
-" create swap files every 10 keystrokes
-set updatecount=10
-"**************************************
-" Keybinds
-"**************************************
-
-" Death to arrow keys!
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
-
-" Ctrl-s saves the file
-noremap <silent> <C-S>          :update<CR>
-vnoremap <silent> <C-S>         <C-C>:update<CR>
-inoremap <silent> <C-S>         <C-O>:update<CR>
-
-" Leader key is space
-let mapleader = "\<Space>"
-
-" Highlight our current line
-set cursorline
-
-" allow backspace through everything
-set backspace=indent,eol,start
-" let's speed some stuff up
-set lazyredraw
-set ttyfast
-
-nnoremap <Leader>n :bnext<CR>
-nnoremap <Leader>p :bprevious<CR>
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>q :q<CR>
-
-" kill that stupid window that pops up
-map q: :q
-
-"**************************************
-" Persistent undo
-"**************************************
-
-" Put plugins and dictionaries in this dir (also on Windows)
 let vimDir = '$HOME/.vim'
 let &runtimepath.=','.vimDir
-
-" Keep undo history across sessions by storing it in a file
 if has('persistent_undo')
     let myUndoDir = expand(vimDir . '/undodir')
     " Create dirs
@@ -229,35 +101,45 @@ if has('persistent_undo')
     let &undodir = myUndoDir
     set undofile
 endif
-
-"**************************************
-" Undo Tree
-"**************************************
 nnoremap <Leader>u :UndotreeToggle<CR>:UndotreeFocus <CR>
 
-set nocompatible        " Use advanced Vim features
+set hidden              " Hide buffers instead of closing
+set autoread
+set nowrap              " don't wrap lines
 set binary noeol        " Allow binary editing
 set backspace=indent,eol,start " Allow backspace in all situations
-set visualbell t_vb=    " Use the visual bell instead of beep
+set visualbell          " Use the visual bell instead of beep
+set noerrorbells        " Don't beep
+set lazyredraw          " Speed up
 set ttyfast             " Make screen changes smoother
 set ff=unix             " Use unix filetype first then dos
-filetype on             " Detect filetypes
-set history=50          " Allow 50 entries in the history
+filetype plugin indent on " Detect filetypes
+set history=99          " Allow 99 entries in the history
+set mouse=a             " Enable mouse mode
 
-if &t_Co > 2 || has("gui_running")
-    syntax on           " Enable syntax highlighting
-endif
+set ttimeout
+set ttimeoutlen=100
+
+set encoding=utf-8
+set t_Co=256
+syntax on               " Enable syntax highlighting
 set showcmd             " Display incomplete commands
 set ruler               " Show cursor position
+set cursorline          " Highlight line
 set number              " Show line numbers
 set sm                  " Show matching braces
 set laststatus=2        " Display status bar
 set notitle             " Don't display the title bar
 set showtabline=2       " Always show the tab line
+set scrolloff=3         " 3 lines below and above of cursor
+set sidescrolloff=3     " 3 lines left and right of cursor
+set list                " Enable Show characters
+set listchars=tab:▸-,trail:⊡ " Show trailing spaces/tabs
 
-if &t_Co > 2 || has("gui_running")
-    set hlsearch        " Highlight words on search
-endif
+set splitright
+set splitbelow
+
+set hlsearch            " Highlight words on search
 set showmatch           " Show matching brackets/paranthesis
 set incsearch           " Incremental searching
 set ignorecase smartcase " Ignore Case for search unless upper case
@@ -267,8 +149,38 @@ set tabstop=4
 set softtabstop=4
 set expandtab
 
+set colorcolumn=80      " Highlight the 80th column
 set nowrap              " By default no word wrapping
 set nolinebreak         " Don't use linebreaks along with wrapping
 
 set autoindent
 set smartindent
+
+set nobackup
+set noswapfile
+
+nnoremap ; :
+
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
+
+nnoremap <Leader>n :bnext<CR>
+nnoremap <Leader>p :bprevious<CR>
+nnoremap <Leader>w :w<CR>
+nnoremap <Leader>wa :wa<CR>
+nnoremap <Leader>r :checktime<CR>
+nnoremap <Leader>q :q<CR>
+
+nmap <silent> <Leader>/ :nohlsearch<CR>
+
+noremap <silent> <C-S>          :update<CR>
+vnoremap <silent> <C-S>         <C-C>:update<CR>
+inoremap <silent> <C-S>         <C-O>:update<CR>
+
+map q: :q
