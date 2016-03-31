@@ -16,6 +16,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-fugitive'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
+Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'mbbill/undotree'
@@ -24,12 +25,15 @@ Plug 'vim-scripts/a.vim'
 Plug 'djoshea/vim-autoread'
 Plug 'tpope/vim-surround'
 Plug 'justincampbell/vim-eighties'
+Plug 'mileszs/ack.vim'
+Plug 'rking/ag.vim'
+Plug 'Chun-Yang/vim-action-ag'
 call plug#end()
 
 let mapleader = "\<Space>"
 
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
+nmap <silent> <leader>ev :e $MYVIMRC<cr>
+nmap <silent> <leader>sv :so $MYVIMRC<cr>
 
 let g:airline#extensions#tabline#enabled = 1
 
@@ -41,6 +45,13 @@ nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 
 set background=dark
 colorscheme solarized
+
+nnoremap <leader>o :CtrlP<cr>
+nnoremap <leader>b :CtrlPBuffer<cr>
+nnoremap <leader>r :CtrlPMRUFiles<cr>
+nnoremap <leader>. :CtrlPTag<cr>
+
+au FocusLost * :wa
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -57,16 +68,16 @@ let g:ctrlp_custom_ignore = {
     \ }
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T'] " Trigger a highlight in the appropriate direction when pressing these keys:
+nnoremap <silent> <leader>tb :TagbarToggle<cr>
 
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 
 nmap s <Plug>(easymotion-overwin-f2)
 let g:EasyMotion_smartcase = 1
-map <Leader>l <Plug>(easymotion-lineforward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>h <Plug>(easymotion-linebackward)
+map <leader>l <Plug>(easymotion-lineforward)
+map <leader>j <Plug>(easymotion-j)
+map <leader>k <Plug>(easymotion-k)
+map <leader>h <Plug>(easymotion-linebackward)
 
 let g:eighties_enabled = 1
 let g:eighties_minimum_width = 80
@@ -74,7 +85,7 @@ let g:eighties_extra_width = 0 " Increase this if you want some extra room
 let g:eighties_compute = 1 " Disable this if you just want the minimum + extra
 let g:eighties_bufname_additional_patterns = ['fugitiveblame'] " Defaults to [], 'fugitiveblame' is only an example. Takes a comma delimited list of bufnames as strings.:
 
-map <Leader><Tab>  :A<cr>
+map <leader><Tab>  :A<cr>
 " a.vim has some really dumb mappings that we need to remove, but we need
 " to wait until vim has loaded to unmap them
 autocmd VimEnter * :iunmap <Space>ihn
@@ -86,8 +97,8 @@ autocmd VimEnter * :nunmap <Space>is
 autocmd VimEnter * :nunmap <Space>ih
 
 let NERDTreeShowHidden=1
-nnoremap <Leader>m :NERDTreeToggle<CR>
-nnoremap <Leader>f :NERDTreeFind<CR>
+nnoremap <leader>nt :NERDTreeToggle<cr>
+nnoremap <leader>nf :NERDTreeFind<cr>
 " Quit vim if NERDTree is the only buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
@@ -101,7 +112,15 @@ if has('persistent_undo')
     let &undodir = myUndoDir
     set undofile
 endif
-nnoremap <Leader>u :UndotreeToggle<CR>:UndotreeFocus <CR>
+nnoremap <leader>u :UndotreeToggle<cr>:UndotreeFocus <cr>
+
+let g:ack_default_options = " -i -H --nocolor --nogroup --column"
+nmap <leader>f :Ag<space>
+
+" use * to search current word in normal mode
+nmap * <Plug>AgActionWord
+" use * to search selected text in visual mode
+vmap * <Plug>AgActionVisual
 
 set hidden              " Hide buffers instead of closing
 set autoread
@@ -139,6 +158,7 @@ set listchars=tab:▸-,trail:⊡ " Show trailing spaces/tabs
 set splitright
 set splitbelow
 
+set magic
 set hlsearch            " Highlight words on search
 set showmatch           " Show matching brackets/paranthesis
 set incsearch           " Incremental searching
@@ -159,6 +179,8 @@ set smartindent
 set nobackup
 set noswapfile
 
+au FocusLost * :wa      " Save all files when you lose focus
+
 nnoremap ; :
 
 map <up> <nop>
@@ -170,17 +192,17 @@ imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
 
-nnoremap <Leader>n :bnext<CR>
-nnoremap <Leader>p :bprevious<CR>
-nnoremap <Leader>w :w<CR>
-nnoremap <Leader>wa :wa<CR>
-nnoremap <Leader>r :checktime<CR>
-nnoremap <Leader>q :q<CR>
+nnoremap <leader>n :bnext<cr>
+nnoremap <leader>p :bprevious<cr>
+nnoremap <leader>w :w<cr>
+nnoremap <leader>wa :wa<cr>
+nnoremap <leader>c :checktime<cr>
+nnoremap <leader>q :q<cr>
 
-nmap <silent> <Leader>/ :nohlsearch<CR>
+nmap <silent> <leader>/ :nohlsearch<cr>
 
-noremap <silent> <C-S>          :update<CR>
-vnoremap <silent> <C-S>         <C-C>:update<CR>
-inoremap <silent> <C-S>         <C-O>:update<CR>
+noremap <silent> <C-S>          :update<cr>
+vnoremap <silent> <C-S>         <C-C>:update<cr>
+inoremap <silent> <C-S>         <C-O>:update<cr>
 
 map q: :q
