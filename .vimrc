@@ -29,6 +29,7 @@ Plug 'justincampbell/vim-eighties'
 Plug 'mileszs/ack.vim'
 Plug 'rking/ag.vim'
 Plug 'Chun-Yang/vim-action-ag'
+Plug 'vim-scripts/vim-auto-save'
 call plug#end()
 
 let mapleader = "\<Space>"
@@ -51,8 +52,6 @@ nnoremap <leader>o :CtrlP<cr>
 nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>r :CtrlPMRUFiles<cr>
 nnoremap <leader>. :CtrlPTag<cr>
-
-au FocusLost * :wa
 
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -122,6 +121,11 @@ nmap <leader>f :Ag<space>
 nmap * <Plug>AgActionWord
 " use * to search selected text in visual mode
 vmap * <Plug>AgActionVisual
+
+let g:auto_save = 1  " enable AutoSave on Vim startup
+let g:auto_save_no_updatetime = 1  " do not change the 'updatetime' option
+let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
+"let g:auto_save_postsave_hook = 'TagsGenerate'  " this will run :TagsGenerate after each save
 
 set hidden              " Hide buffers instead of closing
 set autoread
