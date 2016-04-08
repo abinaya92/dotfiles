@@ -203,6 +203,8 @@ nnoremap <leader>w :w<cr>
 nnoremap <leader>wa :wa<cr>
 nnoremap <leader>c :checktime<cr>
 nnoremap <leader>q :q<cr>
+nnoremap <leader>wq :wq<cr>
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
 
 nmap <silent> <leader>/ :nohlsearch<cr>
 
