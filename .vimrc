@@ -30,6 +30,7 @@ Plug 'mileszs/ack.vim'
 Plug 'rking/ag.vim'
 Plug 'Chun-Yang/vim-action-ag'
 Plug 'vim-scripts/vim-auto-save'
+Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 let mapleader = "\<Space>"
@@ -127,6 +128,11 @@ let g:auto_save_no_updatetime = 1  " do not change the 'updatetime' option
 let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
 "let g:auto_save_postsave_hook = 'TagsGenerate'  " this will run :TagsGenerate after each save
 
+" These are the basic settings to get the font to work (required):
+set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
+set encoding=utf-8
+let g:airline_powerline_fonts=1
+
 set hidden              " Hide buffers instead of closing
 set autoread
 set nowrap              " don't wrap lines
@@ -144,7 +150,6 @@ set mouse=a             " Enable mouse mode
 set ttimeout
 set ttimeoutlen=100
 
-set encoding=utf-8
 set t_Co=256
 syntax on               " Enable syntax highlighting
 set showcmd             " Display incomplete commands
