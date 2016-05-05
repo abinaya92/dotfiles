@@ -11,6 +11,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-fugitive'
@@ -18,11 +19,11 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'mbbill/undotree'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-scripts/a.vim'
-Plug 'airblade/vim-gitgutter'
+"Plug 'airblade/vim-gitgutter'
+"Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'djoshea/vim-autoread'
 Plug 'tpope/vim-surround'
 Plug 'justincampbell/vim-eighties'
@@ -31,6 +32,8 @@ Plug 'rking/ag.vim'
 Plug 'Chun-Yang/vim-action-ag'
 Plug 'vim-scripts/vim-auto-save'
 Plug 'ryanoasis/vim-devicons'
+Plug 'Shougo/neocomplete.vim'
+Plug 'junegunn/fzf'
 call plug#end()
 
 let mapleader = "\<Space>"
@@ -61,8 +64,10 @@ let g:ctrlp_clear_cache_on_exit=0
 let g:ctrlp_max_files=80000
 let g:ctrlp_custom_ignore = {
     \ 'dir': 'work/ecos2\|'
-    \ . 'work/hst/targets\|'
     \ . 'work/epic\|'
+    \ . 'work/ltib\|'
+    \ . 'work/u-boot-imx6\|'
+    \ . 'work/hst/targets\|'
     \ . 'mts\.\(\d\d\d\d\|module\)' ,
     \ 'file': '\.\(a\|so\|o\)$\|'
     \ . 'tar\.\(bz2\|gz\)$',
@@ -72,9 +77,9 @@ let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 nnoremap <silent> <leader>tb :TagbarToggle<cr>
 
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
-
-nmap s <Plug>(easymotion-overwin-f2)
 let g:EasyMotion_smartcase = 1
+
+map <leader>s <Plug>(easymotion-overwin-f2)
 map <leader>l <Plug>(easymotion-lineforward)
 map <leader>j <Plug>(easymotion-j)
 map <leader>k <Plug>(easymotion-k)
@@ -124,7 +129,7 @@ nmap * <Plug>AgActionWord
 vmap * <Plug>AgActionVisual
 
 let g:auto_save = 1  " enable AutoSave on Vim startup
-let g:auto_save_no_updatetime = 1  " do not change the 'updatetime' option
+"let g:auto_save_no_updatetime = 1  " do not change the 'updatetime' option
 let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
 "let g:auto_save_postsave_hook = 'TagsGenerate'  " this will run :TagsGenerate after each save
 
@@ -145,7 +150,11 @@ set ttyfast             " Make screen changes smoother
 set ff=unix             " Use unix filetype first then dos
 filetype plugin indent on " Detect filetypes
 set history=99          " Allow 99 entries in the history
-set mouse=a             " Enable mouse mode
+set mouse+=a             " Enable mouse mode
+if &term =~ '^screen'
+    " tmux knows the extended mouse mode
+    set ttymouse=xterm2
+endif
 
 set ttimeout
 set ttimeoutlen=100
@@ -189,6 +198,8 @@ set smartindent
 set nobackup
 set noswapfile
 
+set wildmenu
+
 au FocusLost * :wa      " Save all files when you lose focus
 
 nnoremap ; :
@@ -207,14 +218,11 @@ nnoremap <leader>p :bprevious<cr>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>wa :wa<cr>
 nnoremap <leader>c :checktime<cr>
-nnoremap <leader>q :q<cr>
+nnoremap <leader>q :bdelete<cr>
+nnoremap <leader>Q :q<cr>
 nnoremap <leader>wq :wq<cr>
-nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+nnoremap <leader>tw :%s/\s\+$//<cr>:let @/=''<CR>
+nnoremap <leader>rt :retab<cr>
+nnoremap <leader>d yyPIqDebug("## <ESC>A");<ESC>
 
 nmap <silent> <leader>/ :nohlsearch<cr>
-
-noremap <silent> <C-S>          :update<cr>
-vnoremap <silent> <C-S>         <C-C>:update<cr>
-inoremap <silent> <C-S>         <C-O>:update<cr>
-
-map q: :q
