@@ -22,8 +22,6 @@ Plug 'scrooloose/nerdtree'
 Plug 'mbbill/undotree'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-scripts/a.vim'
-"Plug 'airblade/vim-gitgutter'
-"Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'djoshea/vim-autoread'
 Plug 'tpope/vim-surround'
 Plug 'justincampbell/vim-eighties'
@@ -34,6 +32,7 @@ Plug 'vim-scripts/vim-auto-save'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Shougo/neocomplete.vim'
 Plug 'junegunn/fzf'
+Plug 'Shougo/unite.vim'
 call plug#end()
 
 let mapleader = "\<Space>"
