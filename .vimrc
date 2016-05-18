@@ -10,6 +10,7 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.vim/plugged')
+Plug 'moll/vim-bbye'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
@@ -30,8 +31,10 @@ Plug 'vim-scripts/vim-auto-save'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Shougo/neocomplete.vim'
 Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'Shougo/unite.vim'
 Plug 'craigemery/vim-autotag'
+Plug 'FredKSchott/CoVim'
 call plug#end()
 
 let mapleader = "\<Space>"
@@ -51,7 +54,7 @@ set background=dark
 colorscheme solarized
 
 nnoremap <leader>o :FZF<cr>
-nnoremap <leader>b :CtrlPBuffer<cr>
+nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>r :CtrlPMRUFiles<cr>
 nnoremap <leader>. :CtrlPTag<cr>
 
@@ -89,6 +92,15 @@ nnoremap <leader>nf :NERDTreeFind<cr>
 " Quit vim if NERDTree is the only buffer
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
+" Highlight cursorline only in active window
+aug CursorLine
+    autocmd!
+    autocmd VimEnter * setl cursorline
+    autocmd WinEnter * setl cursorline
+    autocmd BufWinEnter * setl cursorline
+    autocmd WinLeave * setl nocursorline
+aug END
+
 let vimDir = '$HOME/.vim'
 let &runtimepath.=','.vimDir
 if has('persistent_undo')
@@ -110,13 +122,11 @@ nmap * <Plug>AgActionWord
 vmap * <Plug>AgActionVisual
 
 let g:auto_save = 1  " enable AutoSave on Vim startup
-"let g:auto_save_no_updatetime = 1  " do not change the 'updatetime' option
 let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
 "let g:auto_save_postsave_hook = 'TagsGenerate'  " this will run :TagsGenerate after each save
 
 " These are the basic settings to get the font to work (required):
 set guifont=Droid\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ 12
-set encoding=utf-8
 let g:airline_powerline_fonts=1
 
 set hidden              " Hide buffers instead of closing
@@ -183,8 +193,6 @@ set wildmenu
 
 au FocusLost * :wa      " Save all files when you lose focus
 
-nnoremap ; :
-
 map <up> <nop>
 map <down> <nop>
 map <left> <nop>
@@ -199,12 +207,13 @@ nnoremap <leader>p :bprevious<cr>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>wa :wa<cr>
 nnoremap <leader>c :checktime<cr>
-nnoremap <leader>q :bdelete<cr>
+nnoremap <Leader>q :Bdelete<CR>
 nnoremap <leader>Q :q<cr>
 nnoremap <leader>wq :wq<cr>
 nnoremap <leader>tw :%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap <leader>rt :retab<cr>
-nnoremap <leader>d yyPIqDebug("## <ESC>A");<ESC>
+nnoremap <leader>d yyPIstd::cout << "##### <ESC>A" << std::endl;<ESC>
+nnoremap <leader>qd yyPIqDebug("##### <ESC>A");<ESC>
 
 nmap <silent> <leader>/ :nohlsearch<cr>
 
@@ -222,12 +231,12 @@ if has("cscope")
     set csto=0
 
     " add any cscope database in current directory
-    if filereadable("cscope.out")
-        cs add cscope.out
+    "if filereadable("cscope.out")
+    "    cs add cscope.out
     " else add the database pointed to by environment variable
-    elseif $CSCOPE_DB != ""
-        cs add $CSCOPE_DB
-    endif
+    "elseif $CSCOPE_DB != ""
+    "    cs add $CSCOPE_DB
+    "endif
 
     " show msg when any other cscope db added
     set cscopeverbose
