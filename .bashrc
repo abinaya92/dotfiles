@@ -1,5 +1,5 @@
 if [ -f /etc/bashrc ]; then
-	. /etc/bashrc
+    . /etc/bashrc
 fi
 
 . $HOME/.shellrc.load
@@ -105,3 +105,5 @@ fkill() {
         kill -${1:-9} $pid
     fi
 }
+
+export BERT_PLATFORM_REV=5800v2
