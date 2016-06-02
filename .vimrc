@@ -32,7 +32,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'Shougo/neocomplete.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'Shougo/unite.vim'
+"Plug 'Shougo/unite.vim'
 Plug 'craigemery/vim-autotag'
 Plug 'FredKSchott/CoVim'
 call plug#end()
@@ -174,10 +174,11 @@ set showmatch           " Show matching brackets/paranthesis
 set incsearch           " Incremental searching
 set ignorecase smartcase " Ignore Case for search unless upper case
 
-set shiftwidth=4        " Set tab width to 4 and force spaces
 set tabstop=4
-set softtabstop=4
+set shiftwidth=4        " Set tab width to 4 and force spaces
+set softtabstop=0
 set expandtab
+set smarttab
 
 set colorcolumn=80      " Highlight the 80th column
 set nowrap              " By default no word wrapping
