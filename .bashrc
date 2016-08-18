@@ -109,3 +109,5 @@ fkill() {
 }
 
 export BERT_PLATFORM_REV=5800v2
+
+source /usr/bin/virtualenvwrapper.sh
