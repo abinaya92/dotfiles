@@ -215,14 +215,19 @@ nnoremap <leader>n :bnext<cr>
 nnoremap <leader>p :bprevious<cr>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>wa :wa<cr>
-nnoremap <leader>c :checktime<cr>
-nnoremap <Leader>q :Bdelete<CR>
-nnoremap <leader>Q :q<cr>
+nnoremap <Leader>bd :Bdelete<CR>
+nnoremap <leader>q :q<cr>
 nnoremap <leader>wq :wq<cr>
 nnoremap <leader>tw :%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap <leader>rt :retab<cr>
 nnoremap <leader>d yyPIstd::cout << "##### <ESC>A" << std::endl;<ESC>
 nnoremap <leader>qd yyPIqDebug("##### <ESC>A");<ESC>
+nnoremap <leader>fj :cnext<cr>
+nnoremap <leader>fk :cprevious<cr>
+nnoremap <leader>gj :cnfile<cr>
+nnoremap <leader>gk :cpfile<cr>
+nnoremap <leader>go :cnfile<cr>
+nnoremap <leader>gn :cpfile<cr>
 
 nmap <silent> <leader>/ :nohlsearch<cr>
 
