@@ -44,7 +44,9 @@ alias ..='cd ..'
 alias cd..='cd ..'
 alias rmtmp='find ./ -name *~ | xargs rm'
 alias xvfb='Xvfb :99 & >/dev/null; export DISPLAY=:99'
-alias watcher='find . -name "*.cpp" -o -name "*.h" -o -name "*.xml" -o -name "*.inl" -name "Jamfile" | entr -r -c'
+alias watcher='find . -name "*.cpp" -o -name "*.h" -o -name "*.xml" -o -name "*.inl" -name "Jamfile" | entr -cdr'
+alias pywatcher='find . -name "*.py" | entr -cdr'
+eval $(thefuck --alias)
 
 # ls
 alias ll='ls -l'
