@@ -14,7 +14,6 @@ Plug 'moll/vim-bbye'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'altercation/vim-colors-solarized'
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
@@ -35,6 +34,17 @@ Plug 'junegunn/fzf'
 "Plug 'Shougo/unite.vim'
 Plug 'craigemery/vim-autotag'
 Plug 'FredKSchott/CoVim'
+Plug 'henrik/vim-qargs'
+Plug 'tpope/vim-commentary'
+
+Plug 'marciomazza/vim-brogrammer-theme'
+Plug 'rakr/vim-one'
+Plug 'scwood/vim-hybrid'
+Plug 'mhinz/vim-janah'
+Plug 'YorickPeterse/happy_hacking.vim'
+Plug 'roosta/srcery'
+Plug 'tyrannicaltoucan/vim-deep-space'
+Plug 'mkarmona/colorsbox'
 call plug#end()
 
 let mapleader = "\<Space>"
@@ -43,6 +53,7 @@ nmap <silent> <leader>ev :e $MYVIMRC<cr>
 nmap <silent> <leader>sv :so $MYVIMRC<cr>
 
 let g:airline#extensions#tabline#enabled = 1
+:let g:airline_theme='wombat'
 
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
@@ -51,7 +62,7 @@ nnoremap <silent> <c-k> :TmuxNavigateUp<cr>
 nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 
 set background=dark
-colorscheme solarized
+colorscheme hybrid
 
 nnoremap <leader>o :FZF<cr>
 nnoremap <leader>b :Buffers<cr>
