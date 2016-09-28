@@ -110,4 +110,6 @@ fkill() {
 
 export BERT_PLATFORM_REV=5800v2
 
-source /usr/bin/virtualenvwrapper.sh
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/devel
+source /usr/local/bin/virtualenvwrapper.sh

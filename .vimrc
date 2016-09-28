@@ -30,21 +30,16 @@ Plug 'vim-scripts/vim-auto-save'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Shougo/neocomplete.vim'
 Plug 'junegunn/fzf'
-"Plug 'junegunn/fzf.vim'
-"Plug 'Shougo/unite.vim'
+Plug 'junegunn/fzf.vim'
+Plug 'tweekmonster/fzf-filemru'
 Plug 'craigemery/vim-autotag'
 Plug 'FredKSchott/CoVim'
 Plug 'henrik/vim-qargs'
 Plug 'tpope/vim-commentary'
-
-Plug 'marciomazza/vim-brogrammer-theme'
-Plug 'rakr/vim-one'
-Plug 'scwood/vim-hybrid'
-Plug 'mhinz/vim-janah'
-Plug 'YorickPeterse/happy_hacking.vim'
-Plug 'roosta/srcery'
-Plug 'tyrannicaltoucan/vim-deep-space'
-Plug 'mkarmona/colorsbox'
+Plug 'airblade/vim-gitgutter'
+Plug 'wesQ3/vim-windowswap'
+Plug 'idanarye/vim-vebugger'
+Plug 'flazz/vim-colorschemes'
 call plug#end()
 
 let mapleader = "\<Space>"
@@ -66,8 +61,7 @@ colorscheme hybrid
 
 nnoremap <leader>o :FZF<cr>
 nnoremap <leader>b :Buffers<cr>
-nnoremap <leader>r :CtrlPMRUFiles<cr>
-nnoremap <leader>. :CtrlPTag<cr>
+nnoremap <leader>r :FilesMru --tiebreak=end<cr>
 
 nnoremap <silent> <leader>tb :TagbarToggle<cr>
 
@@ -215,8 +209,7 @@ nnoremap <leader>n :bnext<cr>
 nnoremap <leader>p :bprevious<cr>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>wa :wa<cr>
-nnoremap <Leader>bd :Bdelete<CR>
-nnoremap <leader>q :q<cr>
+nnoremap <Leader>q :Bdelete<CR>
 nnoremap <leader>wq :wq<cr>
 nnoremap <leader>tw :%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap <leader>rt :retab<cr>
