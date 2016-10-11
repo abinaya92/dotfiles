@@ -48,7 +48,7 @@ nmap <silent> <leader>ev :e $MYVIMRC<cr>
 nmap <silent> <leader>sv :so $MYVIMRC<cr>
 
 let g:airline#extensions#tabline#enabled = 1
-:let g:airline_theme='wombat'
+:let g:airline_theme='distinguished'
 
 let g:tmux_navigator_no_mappings = 1
 nnoremap <silent> <c-h> :TmuxNavigateLeft<cr>
