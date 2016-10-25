@@ -40,6 +40,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'wesQ3/vim-windowswap'
 Plug 'idanarye/vim-vebugger'
 Plug 'flazz/vim-colorschemes'
+Plug 'scrooloose/nerdcommenter'
 call plug#end()
 
 let mapleader = "\<Space>"
@@ -194,8 +195,6 @@ set noswapfile
 
 set wildmenu
 
-au FocusLost * :wa      " Save all files when you lose focus
-
 map <up> <nop>
 map <down> <nop>
 map <left> <nop>
@@ -209,8 +208,8 @@ nnoremap <leader>n :bnext<cr>
 nnoremap <leader>p :bprevious<cr>
 nnoremap <leader>w :w<cr>
 nnoremap <leader>wa :wa<cr>
-nnoremap <Leader>q :Bdelete<CR>
 nnoremap <leader>wq :wq<cr>
+nnoremap <Leader>q :Bdelete<CR>
 nnoremap <leader>tw :%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap <leader>rt :retab<cr>
 nnoremap <leader>d yyPIstd::cout << "##### <ESC>A" << std::endl;<ESC>
@@ -219,8 +218,7 @@ nnoremap <leader>fj :cnext<cr>
 nnoremap <leader>fk :cprevious<cr>
 nnoremap <leader>gj :cnfile<cr>
 nnoremap <leader>gk :cpfile<cr>
-nnoremap <leader>go :cnfile<cr>
-nnoremap <leader>gn :cpfile<cr>
+nmap <CR> o<Esc>k
 
 nmap <silent> <leader>/ :nohlsearch<cr>
 
