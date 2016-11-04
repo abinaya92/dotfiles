@@ -60,7 +60,8 @@ nnoremap <silent> <c-l> :TmuxNavigateRight<cr>
 set background=dark
 colorscheme hybrid
 
-nnoremap <leader>o :FZF<cr>
+nnoremap <leader>o :GFiles<cr>
+nnoremap <leader>a :FZF<cr>
 nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>r :FilesMru --tiebreak=end<cr>
 
