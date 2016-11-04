@@ -116,5 +116,7 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/devel
 source /usr/local/bin/virtualenvwrapper.sh
 
-source "~/.bash/up/src/.bash_functions"
-source "~/.bash/up/completion/up"
+source ~/.bash/up/src/.bash_functions
+source ~/.bash/up/completion/up
+
+fish
