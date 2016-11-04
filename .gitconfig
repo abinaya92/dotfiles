@@ -3,9 +3,6 @@
 	email = kavi.jivan@viavisolutions.com
 [push]
 	default = simple
-[merge]
-	tool = mymeld
-	conflictstyle = diff3
 [rebase]
 	pull = preserve
 [mergetool "kdiff3NoAuto"]
