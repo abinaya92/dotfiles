@@ -150,11 +150,11 @@ set ttyfast             " Make screen changes smoother
 set ff=unix             " Use unix filetype first then dos
 filetype plugin indent on " Detect filetypes
 set history=99          " Allow 99 entries in the history
-set mouse+=a             " Enable mouse mode
-if &term =~ '^screen'
-    " tmux knows the extended mouse mode
-    set ttymouse=xterm2
-endif
+set mouse=             " Enable mouse mode
+"if &term =~ '^screen'
+    "" tmux knows the extended mouse mode
+    "set ttymouse=xterm2
+"endif
 
 set ttimeout
 set ttimeoutlen=100
