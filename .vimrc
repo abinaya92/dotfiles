@@ -72,7 +72,7 @@ nnoremap <silent> <leader>tb :TagbarToggle<cr>
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 let g:EasyMotion_smartcase = 1
 
-map <leader>s <Plug>(easymotion-overwin-f2)
+map <leader>i <Plug>(easymotion-overwin-f2)
 map <leader>l <Plug>(easymotion-lineforward)
 map <leader>j <Plug>(easymotion-j)
 map <leader>k <Plug>(easymotion-k)
@@ -126,9 +126,9 @@ let g:ack_default_options = " -i -H --nocolor --nogroup --column"
 nmap <leader>f :Ag<space>
 
 " use * to search current word in normal mode
-nmap * <Plug>AgActionWord
+nmap # <Plug>AgActionWord
 " use * to search selected text in visual mode
-vmap * <Plug>AgActionVisual
+vmap # <Plug>AgActionVisual
 
 let g:auto_save = 1  " enable AutoSave on Vim startup
 let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
@@ -217,10 +217,10 @@ nnoremap <leader>tw :%s/\s\+$//<cr>:let @/=''<CR>
 nnoremap <leader>rt :retab<cr>
 nnoremap <leader>d yyPIstd::cout << "##### <ESC>A" << std::endl;<ESC>
 nnoremap <leader>qd yyPIqDebug("##### <ESC>A");<ESC>
-nnoremap <leader>fj :cnext<cr>
-nnoremap <leader>fk :cprevious<cr>
-nnoremap <leader>gj :cnfile<cr>
-nnoremap <leader>gk :cpfile<cr>
+nnoremap <leader>wj :cnext<cr>
+nnoremap <leader>wk :cprevious<cr>
+nnoremap <leader>ej :cnfile<cr>
+nnoremap <leader>ek :cpfile<cr>
 nmap <CR> o<Esc>k
 
 nmap <silent> <leader>/ :nohlsearch<cr>
