@@ -41,6 +41,8 @@ Plug 'wesQ3/vim-windowswap'
 Plug 'idanarye/vim-vebugger'
 Plug 'flazz/vim-colorschemes'
 Plug 'scrooloose/nerdcommenter'
+Plug 'vim-scripts/indentpython.vim'
+Plug 'wikitopian/hardmode'
 call plug#end()
 
 let mapleader = "\<Space>"
