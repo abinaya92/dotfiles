@@ -48,7 +48,7 @@ call plug#end()
 let mapleader = "\<Space>"
 
 nmap <silent> <leader>ev :e $MYVIMRC<cr>
-nmap <silent> <leader>sv :so $MYVIMRC<cr>
+nmap <silent> <leader>ov :so $MYVIMRC<cr>
 
 let g:airline#extensions#tabline#enabled = 1
 :let g:airline_theme='distinguished'
@@ -72,7 +72,7 @@ nnoremap <silent> <leader>tb :TagbarToggle<cr>
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 let g:EasyMotion_smartcase = 1
 
-map <leader>i <Plug>(easymotion-overwin-f2)
+map <leader>s <Plug>(easymotion-overwin-f2)
 map <leader>l <Plug>(easymotion-lineforward)
 map <leader>j <Plug>(easymotion-j)
 map <leader>k <Plug>(easymotion-k)
