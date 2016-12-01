@@ -46,7 +46,6 @@ alias rmtmp='find ./ -name *~ | xargs rm'
 alias xvfb='Xvfb :99 & >/dev/null; export DISPLAY=:99'
 alias watcher='find . -name "*.cpp" -o -name "*.h" -o -name "*.xml" -o -name "*.inl" -o -name "Jamfile" | entr -cdr'
 alias pywatcher='find . -name "*.py" | entr -cdr'
-eval $(thefuck --alias)
 
 # ls
 alias ll='ls -l'
@@ -111,12 +110,5 @@ fkill() {
 }
 
 export BERT_PLATFORM_REV=5800v2
-
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/devel
-source /usr/local/bin/virtualenvwrapper.sh
-
-source ~/.bash/up/src/.bash_functions
-source ~/.bash/up/completion/up
 
 fish
