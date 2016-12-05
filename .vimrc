@@ -24,8 +24,6 @@ Plug 'djoshea/vim-autoread'
 Plug 'tpope/vim-surround'
 Plug 'justincampbell/vim-eighties'
 Plug 'mileszs/ack.vim'
-Plug 'rking/ag.vim'
-Plug 'Chun-Yang/vim-action-ag'
 Plug 'vim-scripts/vim-auto-save'
 Plug 'ryanoasis/vim-devicons'
 Plug 'Shougo/neocomplete.vim'
@@ -123,12 +121,6 @@ endif
 nnoremap <leader>u :UndotreeToggle<cr>:UndotreeFocus <cr>
 
 let g:ack_default_options = " -i -H --nocolor --nogroup --column"
-nmap <leader>f :Ag<space>
-
-" use * to search current word in normal mode
-nmap # <Plug>AgActionWord
-" use * to search selected text in visual mode
-vmap # <Plug>AgActionVisual
 
 let g:auto_save = 1  " enable AutoSave on Vim startup
 let g:auto_save_in_insert_mode = 0  " do not save while in insert mode
