@@ -14,10 +14,11 @@ Plug 'moll/vim-bbye'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'tpope/vim-fugitive'
-Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
 Plug 'mbbill/undotree'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'majutsushi/tagbar'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-scripts/a.vim'
 Plug 'djoshea/vim-autoread'
@@ -26,21 +27,18 @@ Plug 'justincampbell/vim-eighties'
 Plug 'mileszs/ack.vim'
 Plug 'vim-scripts/vim-auto-save'
 Plug 'ryanoasis/vim-devicons'
-Plug 'Shougo/neocomplete.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'tweekmonster/fzf-filemru'
-Plug 'craigemery/vim-autotag'
-"Plug 'FredKSchott/CoVim'
-Plug 'henrik/vim-qargs'
 Plug 'tpope/vim-commentary'
-Plug 'airblade/vim-gitgutter'
 Plug 'wesQ3/vim-windowswap'
-Plug 'idanarye/vim-vebugger'
-Plug 'flazz/vim-colorschemes'
-Plug 'scrooloose/nerdcommenter'
 Plug 'vim-scripts/indentpython.vim'
+Plug 'scrooloose/nerdcommenter'
 Plug 'wikitopian/hardmode'
+Plug 'flazz/vim-colorschemes'
+"Plug 'craigemery/vim-autotag'
+"Plug 'idanarye/vim-vebugger'
+"Plug 'Shougo/deoplete.nvim'
+"Plug 'FredKSchott/CoVim'
 call plug#end()
 
 let mapleader = "\<Space>"
@@ -61,9 +59,8 @@ set background=dark
 colorscheme hybrid
 
 nnoremap <leader>o :GFiles<cr>
-nnoremap <leader>a :FZF<cr>
+nnoremap <leader>a :GFiles?<cr>
 nnoremap <leader>b :Buffers<cr>
-nnoremap <leader>r :FilesMru --tiebreak=end<cr>
 
 nnoremap <silent> <leader>tb :TagbarToggle<cr>
 
