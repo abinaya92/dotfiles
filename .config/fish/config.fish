@@ -19,11 +19,15 @@ function lsd
 end
 
 function ls
-     command ls -hG $argv
+    command ls -hG $argv
 end
 
 function grep
-     command grep --color=auto $argv
+    command grep --color=auto $argv
+end
+
+function kavi
+    ssh -Y jiv52755@kjivan
 end
 
 eval (python -m virtualfish)
