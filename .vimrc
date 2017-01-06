@@ -14,7 +14,6 @@ Plug 'moll/vim-bbye'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'scrooloose/nerdtree'
 Plug 'mbbill/undotree'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
@@ -22,17 +21,14 @@ Plug 'majutsushi/tagbar'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-scripts/a.vim'
 Plug 'djoshea/vim-autoread'
-Plug 'tpope/vim-surround'
-Plug 'justincampbell/vim-eighties'
-Plug 'mileszs/ack.vim'
 Plug 'vim-scripts/vim-auto-save'
+Plug 'tpope/vim-surround'
+Plug 'mileszs/ack.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
 Plug 'wesQ3/vim-windowswap'
-Plug 'vim-scripts/indentpython.vim'
-Plug 'scrooloose/nerdcommenter'
 Plug 'wikitopian/hardmode'
 Plug 'flazz/vim-colorschemes'
 "Plug 'craigemery/vim-autotag'
@@ -90,11 +86,7 @@ autocmd VimEnter * :nunmap <Space>ihn
 autocmd VimEnter * :nunmap <Space>is
 autocmd VimEnter * :nunmap <Space>ih
 
-let NERDTreeShowHidden=1
-nnoremap <leader>nt :NERDTreeToggle<cr>
-nnoremap <leader>nf :NERDTreeFind<cr>
-" Quit vim if NERDTree is the only buffer
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+command! E Explore
 
 " Highlight cursorline only in active window
 aug CursorLine
