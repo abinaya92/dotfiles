@@ -60,6 +60,11 @@ nnoremap <leader>b :Buffers<cr>
 
 nnoremap <silent> <leader>tb :TagbarToggle<cr>
 
+let g:GitGutterLineHighlightsEnable = 1
+
+nmap ]h <Plug>GitGutterNextHunk
+nmap [h <Plug>GitGutterPrevHunk
+
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 let g:EasyMotion_smartcase = 1
 
