@@ -24,7 +24,7 @@ Plug 'vim-scripts/vim-auto-save'
 Plug 'tpope/vim-surround'
 Plug 'mileszs/ack.vim'
 Plug 'ryanoasis/vim-devicons'
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
 Plug 'wesQ3/vim-windowswap'
