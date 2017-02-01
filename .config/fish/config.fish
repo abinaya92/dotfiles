@@ -30,4 +30,12 @@ function kavi
     ssh -Y jiv52755@kjivan
 end
 
+function abby
+    ssh -Y jiv52755@absegar
+end
+
+function alex
+    ssh -Y jiv52755@ger-tor59451-linux-1
+end
+
 eval (python -m virtualfish)
