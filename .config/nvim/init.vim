@@ -60,7 +60,7 @@ nnoremap <leader>b :Buffers<cr>
 
 nnoremap <silent> <leader>tb :TagbarToggle<cr>
 
-let g:GitGutterLineHighlightsEnable = 1
+let g:gitgutter_highlight_lines = 1
 
 nmap ]h <Plug>GitGutterNextHunk
 nmap [h <Plug>GitGutterPrevHunk
