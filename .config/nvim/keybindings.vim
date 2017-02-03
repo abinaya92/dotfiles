@@ -1,7 +1,8 @@
 nmap <silent> <leader>ev :e $MYVIMRC<cr>
-nmap <silent> <leader>ov :so $MYVIMRC<cr>
+nmap <silent> <leader>sv :so $MYVIMRC<cr>
 
 command! E Explore
+nnoremap <leader>f :E<cr>
 
 nnoremap <leader>n :bnext<cr>
 nnoremap <leader>p :bprevious<cr>
