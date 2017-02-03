@@ -8,7 +8,6 @@ source $HOME/.config/nvim/tmuxnavigator.vim
 source $HOME/.config/nvim/lightline.vim
 source $HOME/.config/nvim/initfzf.vim
 source $HOME/.config/nvim/gitgutter.vim
-source $HOME/.config/nvim/easymotion.vim
 source $HOME/.config/nvim/a.vim
 source $HOME/.config/nvim/undotree.vim
 source $HOME/.config/nvim/autosave.vim
