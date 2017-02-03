@@ -12,7 +12,6 @@ nmap <silent> <leader>ov :so $MYVIMRC<cr>
 source $HOME/.config/nvim/tmuxnavigator.vim
 source $HOME/.config/nvim/initfzf.vim
 source $HOME/.config/nvim/style.vim
-nnoremap <silent> <leader>tb :TagbarToggle<cr>
 
 source $HOME/.config/nvim/gitgutter.vim
 
