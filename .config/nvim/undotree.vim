@@ -1,4 +1,4 @@
-let vimDir = '$HOME/.vim'
+let vimDir = '$HOME/.config/nvim'
 let &runtimepath.=','.vimDir
 if has('persistent_undo')
     let myUndoDir = expand(vimDir . '/undodir')

@@ -5,8 +5,8 @@ let mapleader = "\<Space>"
 
 source $HOME/.config/nvim/plugins.vim
 source $HOME/.config/nvim/tmuxnavigator.vim
+source $HOME/.config/nvim/lightline.vim
 source $HOME/.config/nvim/initfzf.vim
-source $HOME/.config/nvim/style.vim
 source $HOME/.config/nvim/gitgutter.vim
 source $HOME/.config/nvim/easymotion.vim
 source $HOME/.config/nvim/a.vim
@@ -17,4 +17,4 @@ source $HOME/.config/nvim/disablemouse.vim
 source $HOME/.config/nvim/generalsettings.vim
 source $HOME/.config/nvim/keybindings.vim
 source $HOME/.config/nvim/cscope.vim
-
+source $HOME/.config/nvim/style.vim
