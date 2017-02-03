@@ -9,8 +9,8 @@ endif
 call plug#begin()
 
 " Visuals
-Plug 'fneu/breezy'
-Plug 'ryanoasis/vim-devicons'
+Plug 'fneu/breezy'                    " beautiful theme
+Plug 'ryanoasis/vim-devicons'         " dev icons
 Plug 'itchyny/lightline.vim'          " light beautiful status line
 
 " Tools
@@ -20,7 +20,7 @@ Plug 'junegunn/fzf',                  " fuzzy file search
     \ { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'               " fzf integration for vim
 Plug 'tpope/vim-fugitive'             " git integration
-Plug 'airblade/vim-gitgutter'
+Plug 'airblade/vim-gitgutter'         " git gutter integration
 Plug 'tpope/vim-commentary'           " comment stuff out with gcc / gc<motion>
 Plug 'mbbill/undotree'                " undo tree
 Plug 'justinmk/vim-sneak'             " precision movement with s<char><char>
@@ -28,10 +28,9 @@ Plug 'vim-scripts/a.vim'              " header/implementation switch
 Plug 'junegunn/vim-easy-align'        " horizontal alignment of lines
 Plug 'thirtythreeforty/lessspace.vim' " remove new trailing whitespace
 Plug 'metakirby5/codi.vim'            " REPL integration with :Codi <filetype>
-Plug 'djoshea/vim-autoread'
-Plug 'vim-scripts/vim-auto-save'
-Plug 'tpope/vim-surround'
-Plug 'mileszs/ack.vim'
+Plug 'djoshea/vim-autoread'           " external file changes trigger auto read
+Plug 'vim-scripts/vim-auto-save'      " auto save documents on changes
+Plug 'tpope/vim-surround'             " tweak surround things
 
 " Languages
 Plug 'hynek/vim-python-pep8-indent'   " PEP8 conform indenting
@@ -55,6 +54,7 @@ Plug 'w0rp/ale'                       " run async linters while editing
 Plug 'ludovicchabant/vim-gutentags'   " automatic tag management
 
 " ToDo
+Plug 'mileszs/ack.vim'                " doesn't work not sure why?
 "Plug 'idanarye/vim-vebugger'
 "Plug 'FredKSchott/CoVim'
 
