@@ -4,6 +4,7 @@ set nocompatible " This must be first, because it changes other options as side 
 let mapleader = "\<Space>"
 
 source $HOME/.config/nvim/plugins.vim
+source $HOME/.config/nvim/bbye.vim
 source $HOME/.config/nvim/tmuxnavigator.vim
 source $HOME/.config/nvim/sneak.vim
 source $HOME/.config/nvim/lightline.vim

@@ -9,8 +9,8 @@ endif
 call plug#begin()
 
 " Visuals
-Plug 'fneu/breezy'                    " beautiful theme
-Plug 'ryanoasis/vim-devicons'         " dev icons
+Plug 'fneu/breezy'                    " sexy theme
+Plug 'ryanoasis/vim-devicons'         " icons
 Plug 'itchyny/lightline.vim'          " light beautiful status line
 
 " Tools
