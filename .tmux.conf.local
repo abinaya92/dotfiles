@@ -245,6 +245,8 @@ bind -n C-j if-shell "$is_vim" "send-keys C-j" "select-pane -D"
 bind -n C-k if-shell "$is_vim" "send-keys C-k" "select-pane -U"
 bind -n C-l if-shell "$is_vim" "send-keys C-l" "select-pane -R"
 
+bind b copy-mode
+
 # increase history size
 #set -g history-limit 10000
 
