@@ -51,7 +51,7 @@ Plug 'honza/vim-snippets'             " Default snippets
 Plug 'w0rp/ale'                       " run async linters while editing
 
 " Tags
-Plug 'ludovicchabant/vim-gutentags'   " automatic tag management
+" Plug 'ludovicchabant/vim-gutentags'   " automatic tag management
 
 " ToDo
 Plug 'mileszs/ack.vim'                " doesn't work not sure why?
