@@ -44,9 +44,8 @@ alias ..='cd ..'
 alias cd..='cd ..'
 alias rmtmp='find ./ -name *~ | xargs rm'
 alias xvfb='Xvfb :99 & >/dev/null; export DISPLAY=:99'
-alias watcher='find . -name "*.cpp" -o -name "*.h" -o -name "*.xml" -o -name "*.inl" -name "Jamfile" | entr -cdr'
+alias watcher='find . -name "*.cpp" -o -name "*.h" -o -name "*.xml" -o -name "*.inl" -o -name "CMakeLists.txt" | entr -cdr'
 alias pywatcher='find . -name "*.py" | entr -cdr'
-eval $(thefuck --alias)
 
 # ls
 alias ll='ls -l'
@@ -63,6 +62,8 @@ HISTTIMEFORMAT="%d/%m/%y %T "
 export HISTCONTROL=ignoredups:erasedups # no duplicate entries
 export HISTSIZE=999 # big big history
 export HISTFILESIZE=999 # big big history
+export HISTCONTROL=ignoredups
+export HISTCONTROL=erasedups
 shopt -s histappend # append to history, don't overwrite it
 
 # Save and reload the history after each command finishes
@@ -110,6 +111,4 @@ fkill() {
 
 export BERT_PLATFORM_REV=5800v2
 
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/devel
-source /usr/local/bin/virtualenvwrapper.sh
+fish
